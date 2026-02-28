@@ -31,18 +31,20 @@ A Claude Code skill that guides strict test-driven development: RED (write a fai
 
 ```bash
 # Global — available in all projects
-cp -r skills/tdd ~/.claude/skills/tdd
+mkdir -p ~/.claude/skills/tdd && cp SKILL.md ~/.claude/skills/tdd/
 
 # Project-local — available in one project
-cp -r skills/tdd .claude/skills/tdd
+mkdir -p .claude/skills/tdd && cp SKILL.md .claude/skills/tdd/
 ```
 
 ```powershell
 # Windows — global
-Copy-Item -Recurse skills\tdd "$env:USERPROFILE\.claude\skills\tdd"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills\tdd" | Out-Null
+Copy-Item SKILL.md "$env:USERPROFILE\.claude\skills\tdd\"
 
 # Windows — project-local
-Copy-Item -Recurse skills\tdd ".claude\skills\tdd"
+New-Item -ItemType Directory -Force ".claude\skills\tdd" | Out-Null
+Copy-Item SKILL.md ".claude\skills\tdd\"
 ```
 
 **2. Make TDD the default** (recommended):
